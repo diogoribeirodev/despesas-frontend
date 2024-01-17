@@ -3,22 +3,25 @@ import axios from "axios";
 const API_URL = "https://despesas-coral.vercel.app/api/auth/";
 
 const register = (name, email, password) => {
-  return axios.post(API_URL + "signup", {
-    name,
-    email,
-    password,
-  }).then((response) => {
-    if (response.data) {
-      localStorage.setItem("name", response.data.name);
-      localStorage.setItem("token", response.data.token);
-    }
+  return axios
+    .post(API_URL + "signup", {
+      name,
+      email,
+      password,
+    })
+    .then((response) => {
+      if (response.data) {
+        localStorage.setItem("name", response.data.name);
+        localStorage.setItem("token", response.data.token);
+      }
 
-    return response.data;
-  });
+      return response.data;
+    });
 };
 
 const login = (email, password) => {
-  return axios.post(API_URL + "signin", { email, password, })
+  return axios
+    .post(API_URL + "signin", { email, password })
     .then((response) => {
       if (response.data) {
         localStorage.setItem("name", response.data.name);
@@ -42,6 +45,6 @@ const AuthService = {
   login,
   logout,
   getCurrentUser,
-}
+};
 
 export default AuthService;

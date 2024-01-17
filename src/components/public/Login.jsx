@@ -7,11 +7,7 @@ import AuthService from "../../services/auth.service";
 
 const required = (value) => {
   if (!value) {
-    return (
-      <div className="invalid-feedback d-block">
-        É obrigatório!
-      </div>
-    );
+    return <div className="invalid-feedback d-block">É obrigatório!</div>;
   }
 };
 
@@ -52,7 +48,7 @@ const Login = () => {
         (error) => {
           setLoading(false);
           setMessage("Credenciais erradas!");
-        }
+        },
       );
     } else {
       setLoading(false);
@@ -64,7 +60,6 @@ const Login = () => {
       <section>
         <div className="p-5 mb-4 bg-body-tertiary rounded-3">
           <div className="container-fluid py-5">
-
             <Form onSubmit={handleLogin} ref={form} className="col-4">
               <h1 className="h3 mb-3 fw-normal">Entrar</h1>
               <div className="form-group">
@@ -78,7 +73,6 @@ const Login = () => {
                   validations={[required]}
                 />
               </div>
-
               <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <Input
@@ -90,7 +84,6 @@ const Login = () => {
                   validations={[required]}
                 />
               </div>
-
               <div className="form-group">
                 <button className="btn btn-info mt-2" disabled={loading}>
                   {loading && (
@@ -98,12 +91,10 @@ const Login = () => {
                   )}
                   <span>Login</span>
                 </button>
-
                 <Link to={"/"} className="btn btn-secondary mt-2 mx-2">
                   Voltar
                 </Link>
               </div>
-
               {message && (
                 <div className="form-group mt-2">
                   <div className="alert alert-danger" role="alert">

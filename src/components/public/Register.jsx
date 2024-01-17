@@ -9,21 +9,13 @@ import AuthService from "../../services/auth.service";
 
 const required = (value) => {
   if (!value) {
-    return (
-      <div className="invalid-feedback d-block">
-        É obrigatório!
-      </div>
-    );
+    return <div className="invalid-feedback d-block">É obrigatório!</div>;
   }
 };
 
 const validEmail = (value) => {
   if (!isEmail(value)) {
-    return (
-      <div className="invalid-feedback d-block">
-        E-mail inválido!
-      </div>
-    );
+    return <div className="invalid-feedback d-block">E-mail inválido!</div>;
   }
 };
 
@@ -81,7 +73,7 @@ const Register = () => {
 
           setMessage(resMessage);
           setSuccessful(false);
-        }
+        },
       );
     }
   };
@@ -89,13 +81,12 @@ const Register = () => {
   return (
     <main>
       <section>
-      <div className="p-5 mb-4 bg-body-tertiary rounded-3">
+        <div className="p-5 mb-4 bg-body-tertiary rounded-3">
           <div className="container-fluid py-5">
             <Form onSubmit={handleRegister} ref={form} className="col-4">
               {!successful && (
                 <div>
                   <h1 className="h3 mb-3 fw-normal">Registar</h1>
-
                   <div className="form-group">
                     <label>Nome</label>
                     <Input
@@ -107,7 +98,6 @@ const Register = () => {
                       validations={[required, vusername]}
                     />
                   </div>
-
                   <div className="form-group">
                     <label>Email</label>
                     <Input
@@ -119,7 +109,6 @@ const Register = () => {
                       validations={[required, validEmail]}
                     />
                   </div>
-
                   <div className="form-group">
                     <label>Password</label>
                     <Input
@@ -131,17 +120,14 @@ const Register = () => {
                       validations={[required, vpassword]}
                     />
                   </div>
-
                   <div className="form-group">
                     <button className="btn btn-success mt-2">Registar</button>
-
                     <Link to={"/"} className="btn btn-secondary mt-2 mx-2">
                       Voltar
                     </Link>
                   </div>
                 </div>
               )}
-
               {message && (
                 <div className="form-group">
                   <div

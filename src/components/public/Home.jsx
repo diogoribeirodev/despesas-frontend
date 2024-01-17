@@ -11,7 +11,10 @@ const Home = () => {
               <Link to={"/login"} className="btn btn-info btn-lg px-4">
                 Entrar
               </Link>
-              <Link to={"/register"} className="btn btn-success btn-lg px-4 mx-2">
+              <Link
+                to={"/register"}
+                className="btn btn-success btn-lg px-4 mx-2"
+              >
                 Registar
               </Link>
             </div>
